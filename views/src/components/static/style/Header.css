@@ -1,0 +1,10 @@
+.navItem:hover{
+  color: red;
+}
+
+.navItem{
+  color: black;
+  text-decoration: inherit;
+  font-size: 12px;
+  font-style: bold;
+}

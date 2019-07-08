@@ -39,6 +39,33 @@ let UserSchema = new Schema({
       type: String,
       required: true
     },
+    isVerified: {
+      type: Boolean,
+      default: false
+    },
+    passwordResetToken: {
+      type: String
+    },
+    passwordResetExpires: Date
+});
+
+//Schema for verifying the Email address
+let TokenSchema = new Schema({
+    _userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User'
+    },
+    token: {
+      type: String,
+      required: true
+    },
+    createdAt: {
+      type: Date,
+      required: true,
+      default: Date.now,
+      expires: 43200
+    }
 });
 
 //authenticate input against database
@@ -100,4 +127,5 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 // Export the model
 var User = mongoose.model('User', UserSchema);
-module.exports = User;
+var Token = mongoose.model('Token', TokenSchema);
+module.exports = {user:User, token:Token};
