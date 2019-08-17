@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const user_controller = require('../controllers/user.controller');
+const block_interface = require('../interfacing/block.init');
 const {check, validationResult, sanitize} = require('express-validator');
 
 const SignupValidator = [
@@ -35,5 +36,6 @@ router.post('/resend', user_controller.user_resend);
 router.post('/passwordreset',ResendValidator ,user_controller.user_passwordreset);
 router.get('/reset/:token', user_controller.user_resetget);
 router.post('/updatepassword/:id',user_controller.user_updatepassword);
+router.get('/block',block_interface.setup);
 
 module.exports = router;

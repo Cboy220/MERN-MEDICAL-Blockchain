@@ -23,7 +23,10 @@
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth": "^2.0.0",
-    "passport-twitter": "^1.0.4"
+    "passport-twitter": "^1.0.4",
+    "path": "^0.12.7",
+    "truffle-contract": "^4.0.26",
+    "web3": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
